@@ -13,6 +13,7 @@ describe ('Airport', function(){
   });
 
   it ('lands a plane', function(){
+    spyOn(airport1, "isWeather").and.returnValue(true);
     airport1.land(plane2);
     expect(airport1.planes).toContain(plane2);
     //expect(plane2.changeStatus).toHaveBeenCalled();
