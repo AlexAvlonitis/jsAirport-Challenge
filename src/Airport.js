@@ -3,8 +3,14 @@ function Airport(){
 }
 
 Airport.prototype.land = function(plane){
-  plane.changeStatus();
-  this.planes.push(plane);
+  var weather = this.isWeather();
+  if (weather === true){
+    plane.changeStatus();
+    this.planes.push(plane);
+  } else {
+    return "Bad weather, can't land";
+  }
+
   //console.log(this.planes);
 };
 
