@@ -9,7 +9,6 @@ describe ('Airport', function(){
   });
 
   it ('lands a plane', function(){
-
     airport1.land(plane1);
     expect(airport1.planes).toContain(plane1);
   });
