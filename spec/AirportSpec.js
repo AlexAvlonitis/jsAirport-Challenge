@@ -5,7 +5,6 @@ describe ('Airport', function(){
   beforeEach(function(){
     spyOn(plane1, 'changeStatus');
 
-    plane1.changeStatus();
   });
 
   it ('lands a plane', function(){
@@ -13,7 +12,8 @@ describe ('Airport', function(){
     expect(airport1.planes).toContain(plane1);
   });
 
-  it("tracks that the spy was called", function() {
+  it("tracks that the spy was called on landing", function() {
+    airport1.land(plane1);
     expect(plane1.changeStatus).toHaveBeenCalled();
   });
 
