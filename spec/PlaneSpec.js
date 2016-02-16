@@ -4,6 +4,8 @@ describe ('Plane', function(){
   it ('changes plane status', function(){
     plane.changeStatus();
     expect(plane.airborne).toBe(false);
+    //console.log(plane);
+
   });
 
 });

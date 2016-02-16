@@ -5,7 +5,7 @@ function Plane(){
 Plane.prototype.changeStatus = function(){
   if (this.airborne === true) {
     this.airborne = false;
-  } else {
+  } else if (this.airborne === false) {
     this.airborne = true;
   }
 };
