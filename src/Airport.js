@@ -1,17 +1,21 @@
-function Airport(){
+function Airport(capacity = 2){
+  this.CAPACITY = capacity;
   this.planes = [];
 }
 
 Airport.prototype.land = function(plane){
   var weather = this.isWeather();
+  if (this.isFull()) return "Can't land, over capacity";
   if (weather === true){
     plane.changeStatus();
     this.planes.push(plane);
   } else {
     return "Bad weather, can't land";
   }
+};
 
-  //console.log(this.planes);
+Airport.prototype.isFull = function(){
+  return this.planes.length >= this.CAPACITY ? true : false;
 };
 
 
@@ -21,7 +25,6 @@ Airport.prototype.takeoff = function(plane){
     plane.changeStatus();
     var index = this.planes.indexOf(plane);
     this.planes.splice(index, 1);
-    //console.log(plane);
   } else {
     return "Bad weather, can't take off";
   }
